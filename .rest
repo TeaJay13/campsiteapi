@@ -1,0 +1,46 @@
+
+
+###
+GET http://localhost:3000/contacts HTTP/1.1
+###
+GET http://localhost:3000/contacts/67998f6ba569bb8fa56392a4 HTTP/1.1
+###
+GET http://localhost:3000/contacts/67998f6ba569bb8fa56392a5 HTTP/1.1
+###
+GET http://localhost:3000/contacts/67998f6ba569bb8fa56392a6 HTTP/1.1
+
+###
+POST http://localhost:3000/contacts HTTP/1.1   
+Content-Type: application/json
+
+{
+  "firstName": "Todd",
+  "lastName": "Strickland",
+  "email": "todd@email.com",
+  "favoriteColor": "green",
+  "birthday": "1990-13-01"
+}
+
+###
+GET http://localhost:3000/contacts HTTP/1.1
+
+###
+PUT http://localhost:3000/contacts/679e50133acf0eb2c82dea5f HTTP/1.1
+Content-Type: application/json
+
+{
+  "firstName": "Lorraine",
+  "lastName": "Strickland",
+  "email": "lorrines@email.com",
+  "favoriteColor": "pink",
+  "birthday": "1990-08-01"
+}
+
+###
+GET http://localhost:3000/contacts HTTP/1.1
+
+###
+DELETE http://localhost:3000/contacts/679ed72756a8e31b60ba6ce4 HTTP/1.1
+
+###
+GET http://localhost:3000/contacts HTTP/1.1
