@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
-
 const campsitesController = require('../controllers/campsites');
+const validate = require('../middleware/validate');
 
 /**
  * @swagger
@@ -86,7 +86,7 @@ router.get('/:id', campsitesController.getSingle);
  *       400:
  *         description: Invalid input data.
  */
-router.post('/', campsitesController.createCampsite);
+router.post('/', validate.createCampsite, campsitesController.createCampsite);
 
 /**
  * @swagger
@@ -132,7 +132,7 @@ router.post('/', campsitesController.createCampsite);
  *       404:
  *         description: Campsite not found.
  */
-router.put('/:id', campsitesController.updateCampsite);
+router.put('/:id', validate.updateCampsite, campsitesController.updateCampsite);
 
 /**
  * @swagger
@@ -153,6 +153,6 @@ router.put('/:id', campsitesController.updateCampsite);
  *       404:
  *         description: Campsite not found.
  */
-router.delete('/:id', campsitesController.deleteCampsite);
+router.delete('/:id', validate.deleteCampsite, campsitesController.deleteCampsite);
 
 module.exports = router;
