@@ -1,6 +1,6 @@
-// helper for validation using the npm package jsvalidator
+// helper for validation using the npm package validatorjs
 
-const { Validator } = require('jsvalidator');
+const Validator = require('validatorjs');
 
 const validator = (body, rules, customMessages, callback) => {
     const validation = new Validator(body, rules, customMessages);

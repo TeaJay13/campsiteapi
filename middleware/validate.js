@@ -3,7 +3,7 @@ const validator = require('../helpers/validate');
 const customMessages = {
     required: 'The :attribute field is required.',
     string: 'The :attribute field must be a string.',
-    number: 'The :attribute field must be a number.',
+    numeric: 'The :attribute field must be a number.',
     array: 'The :attribute field must be an array.'
 };
 
@@ -12,8 +12,8 @@ const createCampsite = (req, res, next) => {
         name: 'required|string',
         location: 'required|string',
         description: 'required|string',
-        rating: 'required|number',
-        pricePerNight: 'required|number',
+        rating: 'required|numeric',
+        pricePerNight: 'required|numeric',
         amenities: 'required|array',
         accessibility: 'required|string'
     };
@@ -36,8 +36,8 @@ const updateCampsite = (req, res, next) => {
         name: 'string',
         location: 'string',
         description: 'string',
-        rating: 'number',
-        pricePerNight: 'number',
+        rating: 'numeric',
+        pricePerNight: 'numeric',
         amenities: 'array',
         accessibility: 'string'
     };

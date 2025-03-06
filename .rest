@@ -12,12 +12,12 @@ POST http://localhost:3000/campsites HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "Mountain View Campground",
+  "name": "Mountain View Campground Test 2",
   "location": "Boise, ID",
   "description": "A beautiful campground with stunning views of the mountains.",
   "amenities": ["water", "electricity", "wifi", "showers"],
-  "price": 35,
-  "availability": "Available",
+  "pricePerNight": 35,
+  "accessibility": "Available",
   "rating": 4.5
 }
 
@@ -32,9 +32,9 @@ Content-Type: application/json
   "name": "Mountain View Campground",
   "location": "Boise, ID",
   "description": "A beautiful campground with stunning views of the mountains.",
-  "amenities": ["water", "electricity", "wifi", "showers"],
-  "price": 35,
-  "availability": "Available",
+  "amenities": ["water", "electricity", "wifi", "showers", "bathrooms", "test"],
+  "pricePerNight": 35,
+  "accessibility": "Available",
   "rating": 4.5
 }
 
