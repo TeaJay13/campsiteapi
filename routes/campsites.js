@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const campsitesController = require('../controllers/campsites');
 const validate = require('../middleware/validate');
+const { requiresAuth } = require('express-openid-connect');
 
 /**
  * @swagger
@@ -13,7 +14,7 @@ const validate = require('../middleware/validate');
  *       200:
  *         description: Successful response with a list of campsites.
  */
-router.get('/', campsitesController.getAll);
+router.get('/', requiresAuth(), campsitesController.getAll);
 
 /**
  * @swagger
@@ -34,7 +35,7 @@ router.get('/', campsitesController.getAll);
  *       404:
  *         description: Campsite not found.
  */
-router.get('/:id', campsitesController.getSingle);
+router.get('/:id', requiresAuth(), campsitesController.getSingle);
 
 /**
  * @swagger
@@ -86,7 +87,7 @@ router.get('/:id', campsitesController.getSingle);
  *       400:
  *         description: Invalid input data.
  */
-router.post('/', validate.createCampsite, campsitesController.createCampsite);
+router.post('/', requiresAuth(), validate.createCampsite, campsitesController.createCampsite);
 
 /**
  * @swagger
@@ -132,7 +133,7 @@ router.post('/', validate.createCampsite, campsitesController.createCampsite);
  *       404:
  *         description: Campsite not found.
  */
-router.put('/:id', validate.updateCampsite, campsitesController.updateCampsite);
+router.put('/:id', requiresAuth(), validate.updateCampsite, campsitesController.updateCampsite);
 
 /**
  * @swagger
@@ -153,6 +154,6 @@ router.put('/:id', validate.updateCampsite, campsitesController.updateCampsite);
  *       404:
  *         description: Campsite not found.
  */
-router.delete('/:id', validate.deleteCampsite, campsitesController.deleteCampsite);
+router.delete('/:id', requiresAuth(), validate.deleteCampsite, campsitesController.deleteCampsite);
 
 module.exports = router;
