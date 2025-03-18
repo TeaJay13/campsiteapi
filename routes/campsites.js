@@ -159,7 +159,7 @@ router.delete('/:id', requiresAuth(), validate.deleteCampsite, campsitesControll
 
 /**
  * @swagger
- * /users:
+ * /user:
  *   get:
  *     summary: Get a list of users
  *     description: Retrieve a list of users from the database.
@@ -167,18 +167,6 @@ router.delete('/:id', requiresAuth(), validate.deleteCampsite, campsitesControll
  *       200:
  *         description: Successful response with a list of users.
  */
-router.get('/users', requiresAuth(), campsitesController.getAllUsers);
-
-/**
- * @swagger
- * /campsites:
- *   get:
- *     summary: Get a list of users
- *     description: Retrieve a list of users from the database.
- *     responses:
- *       200:
- *         description: Successful response with a list of users.
- */
-router.get('/', requiresAuth(), userController.getAll);
+router.get('/user', requiresAuth(), userController.getAllUsers);
 
 module.exports = router;
