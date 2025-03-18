@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const campsitesController = require('../controllers/campsites');
+const userController = require('../controllers/user');
 const validate = require('../middleware/validate');
 const { requiresAuth } = require('express-openid-connect');
 
@@ -155,5 +156,29 @@ router.put('/:id', requiresAuth(), validate.updateCampsite, campsitesController.
  *         description: Campsite not found.
  */
 router.delete('/:id', requiresAuth(), validate.deleteCampsite, campsitesController.deleteCampsite);
+
+/**
+ * @swagger
+ * /users:
+ *   get:
+ *     summary: Get a list of users
+ *     description: Retrieve a list of users from the database.
+ *     responses:
+ *       200:
+ *         description: Successful response with a list of users.
+ */
+router.get('/users', requiresAuth(), campsitesController.getAllUsers);
+
+/**
+ * @swagger
+ * /campsites:
+ *   get:
+ *     summary: Get a list of users
+ *     description: Retrieve a list of users from the database.
+ *     responses:
+ *       200:
+ *         description: Successful response with a list of users.
+ */
+router.get('/', requiresAuth(), userController.getAll);
 
 module.exports = router;
