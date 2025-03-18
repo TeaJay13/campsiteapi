@@ -7,7 +7,7 @@ const checkUser = (req, res) => {
 };
 
 const getAllUsers = async (req, res) => {
-  const result = await mongodb.getDb().db().collection('users').find();
+  const result = await mongodb.getDb().db().collection('user').find();
   result.toArray().then((users) => {
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(users);
